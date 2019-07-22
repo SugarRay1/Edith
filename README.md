@@ -1,5 +1,5 @@
 ﻿# Edith
-Project for Deloitte Digital  Camp
+"Edith" is project for Deloitte Digital Camp. It is a financial early-warning system.
 
 # Database
 安装pymysql

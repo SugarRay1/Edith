@@ -1,0 +1,42 @@
+{% extends "User/log_base.html" %}
+
+{% block title %}Sign In Form{% endblock %}
+
+{% block body %}
+    <h1 class="w3ls" style="margin-top: 30px">Sign In Form</h1>
+    <div class="content-agileits">
+        <form action="{% url 'User:sign_in' %}" method="post" data-toggle="validator" role="form">
+            {% csrf_token %}
+            <div>
+                <label for="inputEmail" class="error-label">{{ login_err }}</label>
+                <a class="glyphicon glyphicon-refresh sign-refresh" href="{% url 'User:sign_in' %}"></a>
+            </div>
+
+            <div class="form-group 小贝壳网站模板 w3 w3l">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ username }}"
+                       placeholder="Username"
+                       data-error="Enter Your Username" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group agile agileits-小贝壳网站模板 w3-agile">
+                <label for="inputPassword" class="control-label">Password</label>
+
+                <div class="form-group agileits-小贝壳网站模板">
+                    <input type="password" data-minlength="4" class="form-control" id="inputPassword"
+                           name="inputPassword" value=""
+                           placeholder="Password" required>
+                    <div class="help-block">Minimum of 4 characters</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" style="margin-top: 30px" class="btn btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <p class="copyright-w3ls">No accoount? Click here to <a href="{% url 'User:sign_up' %}">Sign up</a> | © 2019 Edith.
+    </p>
+{% endblock %}

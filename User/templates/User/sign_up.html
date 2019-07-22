@@ -1,0 +1,62 @@
+{% extends "User/log_base.html" %}
+
+{% block title %}Sign Up Form{% endblock %}
+
+{% block body %}
+    <h1 class="w3ls" style="padding: 20px">Sign Up Form</h1>
+    <div class="content-agileits">
+        <form action="{% url 'User:sign_up' %}" method="post" data-toggle="validator" role="form">
+            {% csrf_token %}
+            <div>
+                <label for="inputEmail" class="error-label" id="error-label">{{ register_err }}</label>
+                <a class="glyphicon glyphicon-refresh sign-refresh" href="{% url 'User:sign_up' %}"></a>
+            </div>
+
+
+            <div class="form-group 小贝壳网站模板 w3 w3l">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                       value="{{ username }}"
+                       data-error="Enter Your Username" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+
+            <div class="form-group agileinfo wthree w3-agileits agile">
+                <label for="Phone" class="control-label">Phone</label>
+                <input type="text" class="form-control" id="Phone" name="Phone" placeholder="Phone"
+                       value="{{ phone }}"
+                       data-error="Enter Your Phone Number"
+                       required>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group agile agileits-小贝壳网站模板 w3-agile">
+                <label for="inputPassword" class="control-label">Password (Minimum of 4 characters)</label>
+
+                <div class="form-group agileits-小贝壳网站模板">
+                    <input type="password" data-minlength="4" class="form-control" id="inputPassword"
+                           name="inputPassword" value="{{ password1 }}"
+                           placeholder="Password" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+
+            <div class="form-group agile agileits-小贝壳网站模板 w3-agile">
+                <label for="inputPassword" class="control-label">Confirm Password</label>
+                <div class="form-group w3-agile">
+                    <input type="password" class="form-control" id="inputPasswordConfirm" name="inputPasswordConfirm"
+                           value="{{ password2 }}"
+                           data-match="#inputPassword"
+                           data-match-error="Whoops, these don't match" placeholder="Confirm Password" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" style="margin-top: 30px" class="btn btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <p class="copyright-w3ls">Click here to <a href="{% url 'User:sign_in' %}">Sign in</a> | © 2019 Edith.</p>
+{% endblock %}
